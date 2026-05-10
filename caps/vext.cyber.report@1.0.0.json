@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:vext.cyber.report@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Theron-Cyber structured pentest report generation",
+  "description": "Generates a professional penetration testing report from a completed scan session. Includes executive summary, technical findings ranked by CVSS score, attack narrative, remediation roadmap, and compliance mapping (SOC2, ISO27001, PCI-DSS). Report is produced by Theron-Cyber and formatted as PDF + JSON. Requires a completed scan session ID as input.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.cyber.report/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.cyber.report/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 5000,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "standard_report",
+        "unit": "per_report",
+        "amount_cents": 5000
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.998,
+    "p50_latency_ms": 30000,
+    "p95_latency_ms": 90000,
+    "p99_latency_ms": 180000,
+    "samples": 3210
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.report",
+  "scopes_required": ["vext:cyber:report"],
+  "human_confirmation_class": "none",
+  "idempotency": "client-key",
+  "side_effect_kind": "action",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

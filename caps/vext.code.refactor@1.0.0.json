@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:vext.code.refactor@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Theron-Code autonomous code refactoring with patch output",
+  "description": "Refactors a provided code snippet or file to the specified target style, pattern, or quality goal using Theron-Code. Returns a unified diff patch and a natural-language explanation of changes. Common use cases: extract-method, decompose-function, convert-to-async, apply-design-pattern, reduce-cognitive-complexity. The agent applies the patch; no automatic file mutation is performed by this capability.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.code.refactor/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.code.refactor/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 100,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "per_refactor",
+        "unit": "per_refactor",
+        "amount_cents": 100
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.997,
+    "p50_latency_ms": 5000,
+    "p95_latency_ms": 18000,
+    "p99_latency_ms": 45000,
+    "samples": 21033
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.transform",
+  "scopes_required": ["vext:code:refactor"],
+  "human_confirmation_class": "none",
+  "idempotency": "client-key",
+  "side_effect_kind": "action",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

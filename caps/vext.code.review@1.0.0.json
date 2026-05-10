@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:vext.code.review@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Theron-Code per-file code review with security and quality analysis",
+  "description": "Performs a deep code review of a single file using Theron-Code, the 100B+ code specialist. Detects security vulnerabilities (OWASP Top 10, CWE mappings), logic errors, performance anti-patterns, and style violations. Returns structured findings with line numbers, severity, and suggested fixes. Supports 40+ languages. Does not execute code — static analysis only.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.code.review/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.code.review/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 10,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "per_file",
+        "unit": "per_file",
+        "amount_cents": 10
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.999,
+    "p50_latency_ms": 3200,
+    "p95_latency_ms": 12000,
+    "p99_latency_ms": 30000,
+    "samples": 54210
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.analysis",
+  "scopes_required": ["vext:code:review"],
+  "human_confirmation_class": "none",
+  "idempotency": "client-key",
+  "side_effect_kind": "query",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

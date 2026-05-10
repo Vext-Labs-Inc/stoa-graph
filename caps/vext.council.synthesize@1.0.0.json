@@ -1,0 +1,53 @@
+{
+  "urn": "urn:stoa:cap:vext.council.synthesize@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Full Theron council synthesis across all 30 domain specialists",
+  "description": "Routes a complex multi-domain query to the full Theron council — up to 30 domain specialists including Cyber, Code, Legal, Medical, Finance, Research, and more. Each specialist independently produces domain-relevant analysis; the council coordinator synthesizes into a unified structured response. Use for high-stakes decisions requiring multi-perspective depth. Billed per 1K input tokens (council intake) and per 1K output tokens (synthesized response). Token count is over the full council interaction, not just the final output.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.council.synthesize/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.council.synthesize/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 10,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "input",
+        "unit": "per_1k_tokens",
+        "amount_cents": 10
+      },
+      {
+        "label": "output",
+        "unit": "per_1k_tokens",
+        "amount_cents": 40,
+        "applies_after": 0
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.993,
+    "p50_latency_ms": 25000,
+    "p95_latency_ms": 90000,
+    "p99_latency_ms": 180000,
+    "samples": 6200
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.inference",
+  "scopes_required": ["vext:council:synthesize"],
+  "human_confirmation_class": "none",
+  "idempotency": "client-key",
+  "side_effect_kind": "query",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

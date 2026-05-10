@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:vext.research.search@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Theron-Research citation-grounded research query with source attribution",
+  "description": "Answers a research query with citation-grounded, source-attributed responses using Theron-Research. Sources are retrieved from a corpus of primary documents (academic papers, technical standards, government publications, regulatory filings). Every claim is attributed to a specific source with a URL or DOI. Hallucination rate measured at <0.3% on domain benchmarks. Suitable for literature reviews, due diligence, regulatory research, and technical background reports.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.research.search/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.research.search/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 20,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "per_query",
+        "unit": "per_query",
+        "amount_cents": 20
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.998,
+    "p50_latency_ms": 4500,
+    "p95_latency_ms": 15000,
+    "p99_latency_ms": 35000,
+    "samples": 31450
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.retrieval",
+  "scopes_required": ["vext:research:search"],
+  "human_confirmation_class": "none",
+  "idempotency": "client-key",
+  "side_effect_kind": "query",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

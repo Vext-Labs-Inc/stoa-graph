@@ -1,0 +1,52 @@
+{
+  "urn": "urn:stoa:cap:vext.cyber.scan@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Theron-Cyber autonomous vulnerability scan",
+  "description": "Runs a full vulnerability scan against an authorized target using Theron-Cyber — the 100B+ cybersecurity specialist. Combines passive recon, active enumeration, and automated exploit confirmation. Returns structured findings with CVE references, severity, and reproduction steps. Scope validation enforced at the agent level; unauthorized targets are rejected. Findings priced per confirmed vulnerability.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.cyber.scan/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.cyber.scan/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 50,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "base",
+        "unit": "per_request",
+        "amount_cents": 50
+      },
+      {
+        "label": "per_finding",
+        "unit": "per_finding",
+        "amount_cents": 500
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.994,
+    "p50_latency_ms": 45000,
+    "p95_latency_ms": 180000,
+    "p99_latency_ms": 600000,
+    "samples": 8421
+  },
+  "privacy_zones": ["US"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.security",
+  "scopes_required": ["vext:cyber:scan"],
+  "human_confirmation_class": "soft",
+  "idempotency": "client-key",
+  "side_effect_kind": "action",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:vext.medical.review@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Theron-Medical structured clinical chart review and coding assistance",
+  "description": "Performs structured clinical documentation review using Theron-Medical, the 100B+ medical specialist. Analyzes clinical notes, lab values, imaging reports, and medication lists to produce ICD-10/CPT coding suggestions, missing documentation flags, and care gap alerts. PHI is processed in HIPAA-compliant US-only infrastructure. Output is advisory; final coding and clinical decisions remain with licensed providers. Requires BAA with Vext Labs.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.medical.review/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.medical.review/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 1000,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "per_chart",
+        "unit": "per_chart",
+        "amount_cents": 1000
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.999,
+    "p50_latency_ms": 8000,
+    "p95_latency_ms": 25000,
+    "p99_latency_ms": 60000,
+    "samples": 12088
+  },
+  "privacy_zones": ["US"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.analysis",
+  "scopes_required": ["vext:medical:review"],
+  "human_confirmation_class": "soft",
+  "idempotency": "client-key",
+  "side_effect_kind": "query",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

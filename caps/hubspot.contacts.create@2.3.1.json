@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:hubspot.contacts.create@2.3.1",
+  "vendor_did": "did:web:hubspot.com",
+  "summary": "HubSpot CRM contact creation with deduplication",
+  "description": "Creates a new contact record in HubSpot CRM. Accepts standard contact fields (email, firstname, lastname, phone, company, jobtitle) plus any custom properties defined in the account's schema. Idempotent on email address — if a contact with the same email exists, returns the existing record with a 'search-then-update' remediation hint rather than creating a duplicate. Emits a state delta that downstream agents subscribed to hubspot.contact.* can receive via the Stoa live state bus.",
+  "schema": {
+    "input_ref": "https://schemas.hubspot.com/stoa/contacts/create-input.json",
+    "output_ref": "https://schemas.hubspot.com/stoa/contacts/create-output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "third-party:vext.ai",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 8,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "per_request",
+        "unit": "per_request",
+        "amount_cents": 8
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.997,
+    "p50_latency_ms": 84,
+    "p95_latency_ms": 142,
+    "p99_latency_ms": 312,
+    "samples": 18204
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": "urn:stoa:cap:hubspot.contacts.delete@2.3.1",
+  "side_effect_class": "external.crm.write",
+  "scopes_required": ["hubspot:contacts:write"],
+  "human_confirmation_class": "none",
+  "idempotency": "natural-key",
+  "side_effect_kind": "create",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

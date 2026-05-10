@@ -1,0 +1,48 @@
+{
+  "name": "@vext-labs/stoa-graph",
+  "version": "0.1.0",
+  "description": "Federated capability registry for the Stoa open substrate — daily signed bundles, URN-keyed nodes, offline-first.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vext-Labs-Inc/stoa-graph.git"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "stoa-graph": "./dist/bin/stoa-graph.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "cli": "node --experimental-specifier-resolution=node dist/bin/stoa-graph.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "glob": "^11.0.0",
+    "jose": "^5.9.6",
+    "tar": "^7.4.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/tar": "^6.1.13",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "stoa",
+    "capability-registry",
+    "agents",
+    "federated",
+    "signed-bundles",
+    "vext"
+  ]
+}

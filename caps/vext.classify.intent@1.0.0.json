@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:vext.classify.intent@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Ultra-low latency intent classification and capability routing",
+  "description": "Classifies a natural-language agent intent into a ranked list of matching Stoa capability URNs using a distilled Theron routing model. P50 latency under 50ms. Returns top-5 capability matches with confidence scores and a decomposition hint if the intent requires multiple capabilities. Used by Stoa Edge as the first-hop dispatcher before semantic embedding search. Also available standalone for custom routing pipelines.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.classify.intent/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.classify.intent/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 0,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "per_1k_requests",
+        "unit": "per_1k_requests",
+        "amount_cents": 1
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.9998,
+    "p50_latency_ms": 48,
+    "p95_latency_ms": 120,
+    "p99_latency_ms": 280,
+    "samples": 4821033
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.classification",
+  "scopes_required": ["vext:classify:intent"],
+  "human_confirmation_class": "none",
+  "idempotency": "server-dedupe",
+  "side_effect_kind": "query",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}

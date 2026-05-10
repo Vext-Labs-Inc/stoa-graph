@@ -1,0 +1,47 @@
+{
+  "urn": "urn:stoa:cap:vext.legal.review@1.0.0",
+  "vendor_did": "did:web:vext.ai",
+  "summary": "Theron-Legal contract review with clause-level risk annotation",
+  "description": "Performs a structured legal review of a contract document using Theron-Legal, the 100B+ legal specialist. Identifies high-risk clauses, one-sided provisions, missing standard protections (IP assignment, limitation of liability, indemnification, governing law), and jurisdiction-specific compliance issues. Returns clause-level annotations with risk scores and suggested redline language. Not a substitute for licensed legal counsel — output is advisory.",
+  "schema": {
+    "input_ref": "https://specs.tryvext.com/stoa/caps/vext.legal.review/1.0.0/input.json",
+    "output_ref": "https://specs.tryvext.com/stoa/caps/vext.legal.review/1.0.0/output.json"
+  },
+  "embedding": [],
+  "attestations": [
+    {
+      "by": "did:web:vext.ai",
+      "kind": "self",
+      "sig": "PLACEHOLDER",
+      "ts": "2026-05-10T00:00:00Z"
+    }
+  ],
+  "price": {
+    "oracle": "x402:price-feed-v1",
+    "current_cents": 500,
+    "stale_after": 300,
+    "tiers": [
+      {
+        "label": "per_contract",
+        "unit": "per_contract",
+        "amount_cents": 500
+      }
+    ]
+  },
+  "reliability": {
+    "window_24h": 0.996,
+    "p50_latency_ms": 15000,
+    "p95_latency_ms": 45000,
+    "p99_latency_ms": 90000,
+    "samples": 7842
+  },
+  "privacy_zones": ["US", "EU"],
+  "compensation": null,
+  "side_effect_class": "internal.compute.analysis",
+  "scopes_required": ["vext:legal:review"],
+  "human_confirmation_class": "none",
+  "idempotency": "client-key",
+  "side_effect_kind": "query",
+  "deprecation": null,
+  "updated_at": "2026-05-10T00:00:00Z"
+}
